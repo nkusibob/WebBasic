@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jr.net Developer,Robert</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+  <link id="pagestyle" rel="stylesheet" type="text/css" href="">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+  <script src="js/modernizr.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+  <script src="http://stickyjs.com/jquery.sticky.js"></script>
+<script>
+function swapStyleSheet(sheet){
+	
+	document.getElementById('pagestyle').setAttribute('href', sheet);
+}
+function loadXMLDoc() {   
+        var textfile;
+        if (window.XMLHttpRequest)
+        { 
+            textfile = new XMLHttpRequest(); 
+        }
+        textfile.onreadystatechange = function ()
+        {   
+            if (textfile.readyState == 4 && textfile.status == 200)
+            { 
+                document.getElementById("summaryDiv").innerHTML = textfile.responseText;
+            }
+        }
+        textfile.open("GET", "Data/summary.txt", true);
+        textfile.send();
+    }
+function loadDoc() {
+ var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+   experienceLog(this);
+    }
+  };
+  xhttp.open("GET", "Data/cv.xml", true);
+  xhttp.send();
+}
+function experienceLog(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+  var table="<tr><th>CompanyName</th><th>TitleJob</th></tr>";
+  var x = xmlDoc.getElementsByTagName("work");
+  for (i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("CompanyName")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("TitleJob")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("tableExp").innerHTML = table;
+}
+</script>
+</head>
+<body>
+ <header class="cd-header">
+		<a href="#0" class="cd-logo">
+		</a>
+		<a href="#0" class="cd-3d-nav-trigger">
+			
+			<span></span>
+		</a>
+	</header>
+  <div class="wrapper page container">
+  
+   <div >
+    <span class="menu menu_toggle">
+    
+    	<i id="twistSpanOpen" class="menu_open fa fa-bars fa-lg"></i>
+    <i id="twistSpanClose" class="menu_close fa fa-times fa-lg"></i>
+    </span>
+    </div>
+     <h4>
+       <div class="row">
+       
+        <div id="styleDiv"  class="span 4 hidden-phone col-sm-3 col-md-4 col-lg-2" >
+       
+        <ul class="menu_items">
+           <li id="overlay"><a onclick="swapStyleSheet('css/styleOverLay.css')"><i class="icon fa fa-align-left fa-2x"></i>overlay</a></li>
+           <li><a onclick="swapStyleSheet('css/twist.css')"><i class="icon fa fa-chain-broken fa-2x"></i>twist</a></li>
+           <li id="3dRotating"><a onclick="swapStyleSheet('css/style3DRotating.css')"><i class="icon fa fa-cube fa-2x"></i>3dRotate </a ></li>
+           <li><a onclick="swapStyleSheet('css/sticky.css')"><i class="icon fa fa-thumb-tack fa-2x"></i>sticky</a></li>
+           
+        </ul>
+  </div>
+       </div> 
+    </h4>
+     <nav id="menu"class="overlay cd-3d-nav-container content_menu hidden-xs col-sm-3 col-md-4 col-lg-2 row-fluid">
+        <ul class="cd-3d-nav nav navbar-nav span4 hidden-phone">
+            <li id="general"class="cd-selected"><a href="#part1">general</a></li>
+            <li id="experience"><a href="#part2">experience</a></li>
+            <li id="summary"><a href="#part3">summary</a></li>
+            
+        </ul>
+       <span class="cd-marker color-1"></span>	
+    </nav>
+     
+    <div class="title main content col-xs-6 col-sm-3 col-md-4 col-lg-2" >
+      <div id="content" class="content_inner">
+       <div id=generalDiv class="box col-xs-6 col-sm-3 col-md-4 col-lg-2">
+       	 <h2> My name is Robert B.Nkusi, and I am currently seeking a new position at Brussels. I have been working and learning as a jr .net developer  for the past three years.
+
+I am interested in a large corporation as well as  in a nonprofit. I used to work in development for both  and  would love to bring my current skills. I would appreciate hearing a bit about your devloper's experience . I would love to arrange a time to meet with you for an informational interview.
+
+I have attached my resume for your review. If you have time for a brief conversation, please let me know. You can contact me via email (nkusibob@hotmail.com) or phone (0465512357). I look forward to hearing from you. Thank you so much.</h2>
+       </div>
+       <div id="experienceDiv" class="box col-xs-6 col-sm-3 col-md-4 col-lg-2">
+          	<h4>
+           	<table id="tableExp" >
+        	<button class="button" onclick="loadDoc()"><h5>load experience</h5></button>
+        	</table>
+          </h4>
+           </div>
+         <div id="summaryDiv" class="box col-xs-6 col-sm-3 col-md-4 col-lg-2">
+        		<label class="custom-select">
+					<select id="language" onchange="loadXMLDoc()">
+					<option selected disabled>summary's language </option>
+						<option value="Francais">Francais</option>
+						<option value=English>English</option>
+						<option value=Ikinyarwanda>Ikinyarwanda</option>
+						<option value=Swahili>Swahili</option>
+						<option value=Nederlands>Nederland</option>
+						
+						
+					</select>
+				</label>
+        	</div>
+       </div>
+      
+    
+    </div>
+
+    
+
+</div>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+ <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src="js/indexTwist.js"></script>
+ <script  src="js/parralax.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/jquery-2.1.1.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+
+</body>
+</html>

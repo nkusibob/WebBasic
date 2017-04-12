@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Lobster|Pacifico');
+
+
+strong {
+	font-weight: bold; 
+}
+
+em {
+	font-style: italic; 
+}
+
+
+#summaryDiv {
+    
+   font-family: 'Pacifico', cursive;
+
+}
+#generalDiv {
+    
+   font-family: 'Lobster', cursive;
+
+}
+#experienceDiv {
+    
+   font-family: 'Indie', cursive;
+
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+}
+label.custom-select {
+    
+    display: inline-block;
+    height: 50px;
+	width: 70px;
+	position: absolute;
+	
+}
+
+.custom-select select {
+    display: inline-block;
+   border-radius:15%;
+    position: absolute;
+	left:90%;
+	
+	
+    font: inherit;
+    outline:none; /* remove focus ring from Webkit */
+    line-height: 1.2;
+    background:#30C4C9;
+    color:white;
+	font-size: 30px;
+    border:0;
+	
+	
+}
+
+/* Select arrow styling */
+.custom-select:after {
+   
+    position: absolute;
+    top: 10px;
+    right:50%;
+	left:50%;
+    bottom: 0;
+    font-size: 60%;
+    line-height: 30px;
+    padding: 0 5px;
+    background:darkblue;
+    color: deepskyblue;
+    pointer-events: none;
+}
+
+.no-pointer-events .custom-select:after {
+    content: none;
+}
+#styleDiv{
+	position: fixed;
+	right:10px;
+	top:10px;
+	border-radius:50%;
+	background-color:white; 
+	width:150px;
+}
+#styleDiv ul li a:hover {
+  background-color: #30C4C9;
+  color:white;
+	
+}
+
+ ul {
+  list-style-type: none;
+  margin-left:15%;
+}
+.button  {
+    position: relative;
+    background-color: #30C4C9;
+    border: none;
+    font-size: 28px;
+    color: #FFFFFF;
+    padding: 20px;
+    width: 100px;
+	border-radius:50%;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+ ul .button:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+ ul .button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}.box{
+  width: 100%;
+ 
+  border-bottom: 1px solid #666;
+  color:white;
+
+}
+body .wrapper {
+  width: 100%;
+  height: 100vh;
+  background: #1D1313;
+  position: absolute;
+  overflow: hidden;
+}
+body .wrapper span {
+  z-index: 9999;
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  width: 35px;
+  height: 4px;
+  background: #ffffff;
+  cursor: pointer;
+}
+body .wrapper span:before, body .wrapper span:after {
+  display: block;
+  position: absolute;
+  content: '';
+  left: 0;
+  height: 4px;
+  width: 35px;
+  background: #ffffff;
+}
+body .wrapper span:before {
+  top: -8px;
+}
+body .wrapper span:after {
+  bottom: -8px;
+}
+body .wrapper .title {
+  position: absolute;
+  top:100px;;
+  left: 50%;
+  height: 100px;
+  margin-top: -50px;
+  width: 50%;
+  margin-left: -25%;
+  text-align: center;
+	padding:8px 8px 8px 8px;
+}
+#content{
+	position: absolute;
+	top:20px;
+}
+body .wrapper .title h2 {
+  color: #30C4C9;
+}
+body .wrapper .overlay {
+  position: absolute;
+  bottom: -99%;
+  height: 100%;
+  background: #30C4C9;
+  left: 0;
+  width: 100%;
+  transition: all 0.5s ease;
+}
+body .wrapper .overlay.anim {
+  left: 0;
+  bottom: 0;
+  animation: menu-anim 1.5s 1 ease-out normal;
+  width: 25%;
+  transition: all 0.5s ease;
+}
+body .wrapper .overlay.anim.reverse-anim {
+  left: 0;
+  bottom: 0;
+  animation: menu-anim 1.5s 1 ease-out reverse;
+  width: 25%;
+  transition: all 0.5s ease;
+}
+#twistSpanOpen{
+	visibility: hidden;
+}
+#twistSpanClose{
+	visibility: hidden;
+}
+body .wrapper .overlay ul {
+  width: 100%;
+  text-align: center;
+  margin-top:65%;
+  padding-left: 0;
+  margin-left: -10px;
+  font-size: 2em;
+  font-weight: 800;
+}
+body .wrapper .overlay ul li {
+ 
+	margin-top: 10px;
+}
+body .wrapper .overlay ul li a {
+  text-decoration: none;
+  color: white;
+  position: relative;
+  display: inline-block;
+  padding: 10px 0;
+  overflow: hidden;
+}
+body .wrapper .overlay ul li a:after {
+  display: block;
+  border-radius: 2px;
+  content: '';
+  left: 0;
+  bottom: -10px;
+  height: 5px;
+  background: #ffffff;
+  transform: translateX(-101%);
+}
+ ul body .wrapper .overlay ul li a:hover {
+  text-decoration: none;
+}
+body .wrapper .overlay ul li a:hover:after {
+  animation: border-anim 0.5s 1 ease normal;
+  transform: translateX(0);
+}
+@media only screen and (min-width: 768px) {
+  .main.nav-is-visible {
+    -webkit-transform: translateY(170px);
+    -moz-transform: translateY(170px);
+    -ms-transform: translateY(170px);
+    -o-transform: translateY(170px);
+    transform: translateY(170px);
+  }
+	
+  
+}
+@-webkit-keyframes border-anim {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes menu-anim {
+  0% {
+    left: 0;
+    bottom: -99%;
+    width: 100%;
+  }
+  33% {
+    left: -99.5%;
+    bottom: -99%;
+    width: 100%;
+  }
+  66% {
+    left: -99.5%;
+    bottom: 0;
+    width: 100%;
+  }
+  100% {
+    bottom: 0;
+    left: 0;
+    width: 25%;
+  }
+}
